@@ -1,0 +1,29 @@
+/*
+Copyright © Nico Zink
+All rights reserved.
+*/
+
+#ifndef SYSTEM_H
+#define SYSTEM_H
+
+// Local Includes
+
+// Project Includes
+
+// External Includes
+
+// This file contains global settings which should be included in each project file.
+
+// Define the operating system types.
+#define WINDOWS 0
+#define UNIX 1
+
+// Define the compiler types.
+#define GCC 2
+#define MINGW 3
+#define VISUAL_STUDIO 4
+
+#define OPERATING_SYSTEM @OPERATING_SYSTEM@
+#define COMPILER @COMPILER@
+
+#endif
