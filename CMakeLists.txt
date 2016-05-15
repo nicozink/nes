@@ -39,6 +39,8 @@ else (MSVC)
   message(FATAL_ERROR "An unknown compiler is being used." )
 endif (MSVC)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 # Set user specified flags.
 if (MSVC)
 set(CMAKE_CXX_FLAGS "-DGLEW_STATIC -D_USE_MATH_DEFINES")
@@ -49,6 +51,8 @@ endif()
 set(SRC_MAIN
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/gui_renderer.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/system_interface.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/display.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/renderer.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/nes_emulator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/system.cpp
@@ -107,6 +111,10 @@ configure_file (
   "${CMAKE_CURRENT_SOURCE_DIR}/src/system.h.in"
   "${CMAKE_CURRENT_BINARY_DIR}/src/system.h"
 )
+
+# Copy resources
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/resources"
+  DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/src)
