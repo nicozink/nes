@@ -47,7 +47,7 @@ Renderer::Renderer()
 
   CheckGLError();
 
-  glViewport(0, 0, 800, 400);
+  /*glViewport(0, 0, 800, 400);
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
@@ -65,8 +65,27 @@ Renderer::Renderer()
   glDepthFunc(GL_LEQUAL);
   glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-  glEnable(GL_MULTISAMPLE);
+  glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+  
+  glEnable(GL_MULTISAMPLE);*/
 
+  int width = 800;
+  int height = 400;
+  
+  glViewport(0, 0, width, height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, width, height, 0, -1, 1);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+  
+  glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+  
+  glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  
   CheckGLError();
 }
 
