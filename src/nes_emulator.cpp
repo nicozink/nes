@@ -9,6 +9,7 @@ All rights reserved.
 #include "main.h"
 
 // Project Includes
+#include "librocket/nes_element.h"
 #include "librocket/system_interface.h"
 #include "librocket/gui_renderer.h"
 #include "graphics/display.h"
@@ -52,18 +53,22 @@ int run(std::string rom_location)
 		"Delicious",
 		Rocket::Core::Font::STYLE_ITALIC,
 		Rocket::Core::Font::WEIGHT_BOLD);
-
+	
 	Rocket::Core::Context* context = Rocket::Core::CreateContext("main", Rocket::Core::Vector2i(800, 400));
 
-	context->LoadDocument("resources/main.rml")->Show();
+	// Register Invader's custom element and decorator instancers.
+	Rocket::Core::ElementInstancer* element_instancer = new Rocket::Core::ElementInstancerGeneric< NesElement >();
+	Rocket::Core::Factory::RegisterElementInstancer("game", element_instancer);
+	element_instancer->RemoveReference();
 
-	//while (true)
-	{
-		display.PreRender();
+	context->LoadDocument("resources/main.rml")->Show();
 	
-		//display.Render();
-		
+	while (true)
+	{
 		context->Update();
+		
+		display.PreRender();
+		
 		context->Render();
 		
 		display.PostRender();

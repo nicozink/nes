@@ -9,9 +9,22 @@
 			height: 100%;
 			background-color: blue;
 		}
+		game
+		{
+			display: block;
+			width: 100px;
+			height: 100px;
+			background-color: green;
+		}
 	</style>
 </head>
 <body>
-    Hello World!
+	<div id="hello_div">
+		Hello World!
+	</div>
+	
+	<game id="game">
+		Hey!
+	</game>
 </body>
 </rml>

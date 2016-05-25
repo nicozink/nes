@@ -50,6 +50,7 @@ endif()
 
 set(SRC_MAIN
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/gui_renderer.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/nes_element.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/system_interface.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/display.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/renderer.cpp
@@ -72,6 +73,33 @@ if (${OPERATING_SYSTEM} EQUAL ${WINDOWS_ENUM})
       DESTINATION ${CMAKE_BINARY_DIR}/bin/Debug)
     file(COPY
       ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/windows/VS2012/SDL.dll
+      DESTINATION ${CMAKE_BINARY_DIR}/bin/Release)
+      
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/include)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/lib)
+	
+    file(COPY
+      ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/bin/RocketControls.dll
+      DESTINATION ${CMAKE_BINARY_DIR}/bin/Debug)
+      
+    file(COPY
+      ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/bin/RocketControls.dll
+      DESTINATION ${CMAKE_BINARY_DIR}/bin/Release)
+      
+    file(COPY
+      ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/bin/RocketCore.dll
+      DESTINATION ${CMAKE_BINARY_DIR}/bin/Debug)
+     
+    file(COPY
+      ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/bin/RocketCore.dll
+      DESTINATION ${CMAKE_BINARY_DIR}/bin/Release)
+      
+    file(COPY
+      ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/bin/RocketDebugger.dll
+      DESTINATION ${CMAKE_BINARY_DIR}/bin/Debug)
+      
+    file(COPY
+      ${CMAKE_CURRENT_SOURCE_DIR}/dependencies/librocket/vs2015/bin/RocketDebugger.dll
       DESTINATION ${CMAKE_BINARY_DIR}/bin/Release)
   elseif (${COMPILER} EQUAL ${MINGW_ENUM})
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencies/windows/MinGW/include)

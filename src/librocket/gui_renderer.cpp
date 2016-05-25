@@ -98,8 +98,6 @@ void GuiRenderer::ReleaseTexture(Rocket::Core::TextureHandle texture)
 
 void GuiRenderer::RenderGeometry(Rocket::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rocket::Core::TextureHandle texture, const Rocket::Core::Vector2f& translation)
 {
-	glColor3f(1.0, 0.0, 0.0);
-	
 	glPushMatrix();
 	glTranslatef(translation.x, translation.y, 0);
 
