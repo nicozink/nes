@@ -1,0 +1,3 @@
+[submodule "darkentity"]
+	path = darkentity
+	url = https://github.com/nicozink/darkentity.git
