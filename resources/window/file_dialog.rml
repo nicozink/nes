@@ -1,0 +1,25 @@
+<rml>
+<head>
+	<link type="text/css" href="window.rcss"/>
+	<title>Window</title>
+	<style>
+		body
+		{
+			width: 400px;
+			height: 300px;
+
+			margin: auto;
+		}
+	</style>
+</head>
+
+<body class="window">
+	<div id="title-bar">
+		<handle move_target="#document">
+			<span id="title">Dummy Title</span>
+		</handle>
+	</div>
+	This is a window!
+</body>
+
+</rml>

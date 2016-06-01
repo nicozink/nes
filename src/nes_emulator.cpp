@@ -13,6 +13,7 @@ All rights reserved.
 #include "librocket/system_interface.h"
 #include "librocket/gui_renderer.h"
 #include "graphics/display.h"
+#include "ui/window.h"
 
 // External Includes
 #include "Rocket/Core.h" 
@@ -61,7 +62,11 @@ int run(std::string rom_location)
 	Rocket::Core::Factory::RegisterElementInstancer("game", element_instancer);
 	element_instancer->RemoveReference();
 
-	context->LoadDocument("resources/main.rml")->Show();
+	Window main(context, "resources/main.rml");
+	main.Show();
+	
+	Window file(context, "resources/window/file_dialog.rml");
+	file.Show();
 	
 	while (true)
 	{

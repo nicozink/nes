@@ -49,11 +49,15 @@ set(CMAKE_CXX_FLAGS "-DGLEW_STATIC -D_USE_MATH_DEFINES -DDEBUG -g -Wall -O0 -std
 endif()
 
 set(SRC_MAIN
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/display.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/renderer.cpp
+  
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/gui_renderer.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/nes_element.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/librocket/system_interface.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/display.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/graphics/renderer.cpp
+  
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/ui/window.cpp
+  
   ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/nes_emulator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/system.cpp
